@@ -25,14 +25,14 @@ During work on this article an actively developed [fork of gradle-node-plugin](h
 
 ## Initial setup
 
-Create a root Gradle project, lets call it `java-npm-gradle-integration-example`, then `java-app` and `npm-app` as it's subprojects.
+Create a root Gradle project, lets call it `vige`, then `backend` and `frontend` as it's subprojects.
 
 
 ### Create the root project
 
-Create `java-npm-gradle-integration-example` Gradle project with the following configuration.
+Create `vota` Gradle project with the following configuration.
 
-`java-npm-gradle-integration-example/build.gradle`
+`vota/build.gradle`
 ```groovy
 defaultTasks 'build'
 
@@ -43,15 +43,15 @@ wrapper {
 }
 ```
 
-`java-npm-gradle-integration-example/settings.gradle`
+`vota/settings.gradle`
 ```groovy
-rootProject.name = 'java-npm-gradle-integration-example'
+rootProject.name = 'vota'
 ```
 
 The directory structure is expected to be as below:
 
 ```
-java-npm-gradle-integration-example/
+vota/
 ├── build.gradle
 ├── gradle
 │   └── wrapper
@@ -62,31 +62,31 @@ java-npm-gradle-integration-example/
 └── settings.gradle
 ```
 
-### Create `java-app` project
+### Create `backend` project
 
-Generate a Spring Boot application using [Spring Initializr](https://start.spring.io/), with `Web` dependency and Gradle as build type. Place the generated project under `java-npm-gradle-integration-example` directory.
+Generate a Spring Boot application using [Spring Initializr](https://start.spring.io/), with `Web` dependency and Gradle as build type. Place the generated project under `vota` directory.
 
-### Create `npm-app` project
+### Create `frontend` project
 
-Generate `npm-app` React application using [create-react-app](https://github.com/facebook/create-react-app) under `java-npm-gradle-integration-example` directory.
+Generate `frontend` React application using [create-react-app](https://github.com/facebook/create-react-app) under `vota` directory.
 
-## Adapt `java-app` to be Gradle subproject of `java-npm-gradle-integration-example`
+## Adapt `backend` to be Gradle subproject of `vota`
 
-Remove `gradle` directory, `gradlew`, `gradlew.bat` and `settings.gradle` files from `java-app` as they are provided by the root project.
+Remove `gradle` directory, `gradlew`, `gradlew.bat` and `settings.gradle` files from `backend` as they are provided by the root project.
 
-Update the root project to include `java-app` by adding the following line 
+Update the root project to include `backend` by adding the following line 
 ```groovy
-include 'java-app'
+include 'backend'
 ```
-to `java-npm-gradle-integration-example/settings.gradle`.
+to `vota/settings.gradle`.
 
-Now building the root project, i.e. running `./gradlew` inside `java-npm-gradle-integration-example` directory should build the `java-app` as well.
+Now building the root project, i.e. running `./gradlew` inside `vota` directory should build the `backend` as well.
 
-## Make `npm-app` be built by Gradle
+## Make `frontend` be built by Gradle
 
-This is the essential part consisting of converting `npm-app` to Gradle subproject and executing npm build via Gradle script.
+This is the essential part consisting of converting `frontend` to Gradle subproject and executing npm build via Gradle script.
 
-Create `npm-app/build.gradle` file with the following contents, already including _gradle-node-plugin_ dependency.
+Create `frontend/build.gradle` file with the following contents, already including _gradle-node-plugin_ dependency.
 ```groovy
 buildscript {
     repositories {
@@ -149,24 +149,24 @@ Finally make the Gradle build depend on executing npm build:
 assemble.dependsOn npm_run_build
 ```
 
-Now include `npm-app` in the root project by adding the following line to `java-npm-gradle-integration-example/settings.gradle`:
+Now include `frontend` in the root project by adding the following line to `vota/settings.gradle`:
 ```groovy
-include 'npm-app'
+include 'frontend'
 ```
 
-At this moment you should be able to build the root project and see the npm build results under `npm-app/build` directory.
+At this moment you should be able to build the root project and see the npm build results under `frontend/build` directory.
 
 ## Pack npm build result into a JAR and expose to the Java project
 
 Now we need to somehow put the npm build result into a Java package. We would like to do it without awkward copying external files into Java project resources during the build. Much more elegant and reliable way is to add them as a regular dependency, just like any other library.
 
-Let's update `npm-app/build.gradle` to achieve this.
+Let's update `frontend/build.gradle` to achieve this.
 
 At first define task packing results of the build into JAR file:
 ```groovy
 task packageNpmApp(type: Zip) {
     dependsOn npm_run_build
-    baseName 'npm-app'
+    baseName 'frontend'
     extension 'jar'
     destinationDir file("${projectDir}/build_packageNpmApp")
     from('build') {
@@ -213,28 +213,28 @@ clean {
 }
 ```
 
-Finally, include `npm-app` project as a dependency of `java-app` by adding
+Finally, include `frontend` project as a dependency of `backend` by adding
 ```groovy
-runtimeOnly project(':npm-app')
+runtimeOnly project(':frontend')
 ```
-to the `dependencies { }` block of `java-app/build.gradle`. Here the scope (configuration) is `runtimeOnly` since we do not want to include the dependency during compilation time.
+to the `dependencies { }` block of `backend/build.gradle`. Here the scope (configuration) is `runtimeOnly` since we do not want to include the dependency during compilation time.
 
-Now executing the root project build, i.e. inside `java-npm-gradle-integration-example` running a single command
+Now executing the root project build, i.e. inside `vota` running a single command
 ```groovy
 ./gradlew 
 ```
-should result in creating `java-app` JAR containing,
-apart of the java project's classes and resources, also the `npm-app` bundle packaged into JAR. 
+should result in creating `backend` JAR containing,
+apart of the java project's classes and resources, also the `frontend` bundle packaged into JAR. 
 
-In our case the mentioned `npm-app.jar` resides in `java-app/build/libs/java-app-0.0.1-SNAPSHOT.jar`:
+In our case the mentioned `frontend.jar` resides in `backend/build/libs/backend-0.0.1-SNAPSHOT.jar`:
 ```
-zipinfo -1 java-app/build/libs/java-app-0.0.1-SNAPSHOT.jar
+zipinfo -1 backend/build/libs/backend-0.0.1-SNAPSHOT.jar
 ...
-BOOT-INF/classes/eu/xword/labs/gc/JavaAppApplication.class
+BOOT-INF/classes/it/vige/labs/gc/JavaAppApplication.class
 BOOT-INF/classes/application.properties
 BOOT-INF/lib/
 BOOT-INF/lib/spring-boot-starter-web-2.1.1.RELEASE.jar
-BOOT-INF/lib/npm-app.jar
+BOOT-INF/lib/frontend.jar
 BOOT-INF/lib/spring-boot-starter-json-2.1.1.RELEASE.jar
 BOOT-INF/lib/spring-boot-starter-2.1.1.RELEASE.jar
 BOOT-INF/lib/spring-boot-starter-tomcat-2.1.1.RELEASE.jar
@@ -243,7 +243,7 @@ BOOT-INF/lib/spring-boot-starter-tomcat-2.1.1.RELEASE.jar
 
 Last but not the least - check if all of this works. Start the Java application with the following command:
 ```
-java -jar java-app/build/libs/java-app-0.0.1-SNAPSHOT.jar
+java -jar backend/build/libs/backend-0.0.1-SNAPSHOT.jar
 ```
 and open `http://localhost:8080/` in your browser. You should see the React app welcome page.
 
@@ -296,7 +296,7 @@ clean {
 ```
 
 That's it. Now your build includes both Java and JavaScript tests execution. 
-In order to execute the latter individually just run `./gradlew npm-app:test`.
+In order to execute the latter individually just run `./gradlew frontend:test`.
 
 ## Summary
 
@@ -309,4 +309,4 @@ to be served as a static asset.
 
 Such setup can be useful for simple frontend-backend stacks when there is no need to serve frontend application from a separate server.
 
-Full implementation of this example [can be found on GitHub](https://github.com/xword/java-npm-gradle-integration-example).  
+Full implementation of this example [can be found on GitHub](https://github.com/flashboss/vota).  
