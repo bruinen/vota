@@ -8,9 +8,10 @@ import './Vote.css';
 
 export class Vote extends Component {
 
-    constructor() {
-        super();
+    constructor(data) {
+        super(data);
         this.save = this.save.bind(this);
+        this.jsonData = data;
     }
 
     save() {
@@ -21,14 +22,11 @@ export class Vote extends Component {
         return (
             <div>
 
-                <div className="content-section implementation splitbutton-demo">
+                <div className='content-section implementation splitbutton-demo'>
                     <Growl ref={(el) => this.growl = el}></Growl>
-
-                    <Button label="Forza Italia" icon="pi pi-1" onClick={this.save} className="p-button-secondary p-button-grand"></Button>
-                    <Button label="PD" icon="pi pi-2" onClick={this.save} className="p-button-secondary p-button-grand"></Button>
-                    <Button label="Movimento eewe 5 StelleMovimento 5 StelleMovimento 5 StelleMovimento 5 StelleMovimentodedede" icon="pi pi-3" onClick={this.save} className="p-button-secondary p-button-little"></Button>
-                    <Button label="Lega" icon="pi pi-4" onClick={this.save} className="p-button-secondary p-button-grand"></Button>
-                    <Button label="Fratelli d'ItaliaFratelli d'ItaliaFratelli d'Italia" icon="pi pi-5" onClick={this.save} className="p-button-secondary p-button-middle"></Button>
+                    {this.jsonData.config.parties.map((party, i) => {
+                        return (<Button label={party.label} icon={'pi pi-' + (i + 1)} onClick={this.save} className={'p-button-secondary p-button-' + this.jsonData.config.textDimension} ref='button'></Button>)
+                    })}
                 </div>
             </div>
         )
