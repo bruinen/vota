@@ -1,0 +1,21 @@
+{
+    "type": "municipal",
+    "textDimension": "grand",
+    "parties": [
+        {
+            "label": "Forza Italia"
+        },
+        {
+            "label": "PD"
+        },
+        {
+            "label": "Movimento 5 Stelle"
+        },
+        {
+            "label": "Lega"
+        },
+        {
+            "label": "Fratelli d'Italia"
+        }
+    ]
+}
