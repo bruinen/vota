@@ -1,7 +1,47 @@
 body .p-button.p-button-secondary, body .p-buttonset.p-button-secondary > .p-button {
-    color: #333333;
     background-color: white;
-    border: 1px solid #f4f4f4;
+    font-size: 12px;
+    padding: 1% 1% 9% 10%;
+}
+
+body .p-button.p-button-text-icon-left .p-button-text {
+    position: absolute;
+}
+
+body .p-button.p-button-little, body .p-buttonset.p-button-secondary > .p-button {
+    font-size: 12px;
+}
+
+body .p-button.p-button-little .pi {
+    top: 10%;
+}
+
+body .p-button.p-button-little.p-button-text-icon-left .p-button-text {
+    top: 10%;
+}
+
+body .p-button.p-button-middle, body .p-buttonset.p-button-secondary > .p-button {
+    font-size: 16px;
+}
+
+body .p-button.p-button-middle .pi {
+    top: 10%;
+}
+
+body .p-button.p-button-middle.p-button-text-icon-left .p-button-text {
+    top: 10%;
+}
+
+body .p-button.p-button-grand, body .p-buttonset.p-button-secondary > .p-button {
+    font-size: 20px;
+}
+
+body .p-button.p-button-grand .pi {
+    top: 13%;
+}
+
+body .p-button.p-button-grand.p-button-text-icon-left .p-button-text {
+    top: 30%;
 }
 
 .pi-1 {
@@ -22,4 +62,14 @@ body .p-button.p-button-secondary, body .p-buttonset.p-button-secondary > .p-but
 
 .pi-5 {
     content: url(/parties/fratelliditalia.png);
+}
+
+body .p-button, body .p-buttonset.p-button-secondary > .p-button {
+    margin-right: 0.25em;
+    width: 320px;
+    height: 120px;
+}
+
+.p-button-icon-only .p-button-icon-left, .p-button-text-icon-left .p-button-icon-left, .p-button-text-icon-right .p-button-icon-right {
+    height: 95%;
 }

@@ -24,12 +24,11 @@ export class Vote extends Component {
                 <div className="content-section implementation splitbutton-demo">
                     <Growl ref={(el) => this.growl = el}></Growl>
 
-                    <h3>Vota</h3>
-                    <Button label="Forza Italia" icon="pi pi-1" onClick={this.save} className="p-button-secondary" style={{ marginRight: '.25em' }}></Button>
-                    <Button label="PD" icon="pi pi-2" onClick={this.save} className="p-button-secondary" style={{ marginRight: '.25em' }}></Button>
-                    <Button label="Movimento 5 Stelle" icon="pi pi-3" onClick={this.save} className="p-button-secondary" style={{ marginRight: '.25em' }}></Button>
-                    <Button label="Lega" icon="pi pi-4" onClick={this.save} className="p-button-secondary" style={{ marginRight: '.25em' }}></Button>
-                    <Button label="Casapound" icon="pi pi-5" onClick={this.save} className="p-button-secondary" style={{ marginRight: '.25em' }}></Button>
+                    <Button label="Forza Italia" icon="pi pi-1" onClick={this.save} className="p-button-secondary p-button-grand"></Button>
+                    <Button label="PD" icon="pi pi-2" onClick={this.save} className="p-button-secondary p-button-grand"></Button>
+                    <Button label="Movimento eewe 5 StelleMovimento 5 StelleMovimento 5 StelleMovimento 5 StelleMovimentodedede" icon="pi pi-3" onClick={this.save} className="p-button-secondary p-button-little"></Button>
+                    <Button label="Lega" icon="pi pi-4" onClick={this.save} className="p-button-secondary p-button-grand"></Button>
+                    <Button label="Fratelli d'ItaliaFratelli d'ItaliaFratelli d'Italia" icon="pi pi-5" onClick={this.save} className="p-button-secondary p-button-middle"></Button>
                 </div>
             </div>
         )
