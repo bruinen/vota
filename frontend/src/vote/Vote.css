@@ -44,32 +44,8 @@ body .p-button.p-button-grand.p-button-text-icon-left .p-button-text {
     top: 30%;
 }
 
-.pi-1 {
-    content: url(/parties/forzaitalia.png);
-}
-
-.pi-2 {
-    content: url(/parties/pd.png);
-}
-
-.pi-3 {
-    content: url(/parties/movimento5stelle.png);
-}
-
-.pi-4 {
-    content: url(/parties/lega.png);
-}
-
-.pi-5 {
-    content: url(/parties/fratelliditalia.png);
-}
-
 body .p-button, body .p-buttonset.p-button-secondary > .p-button {
     margin-right: 0.25em;
     width: 320px;
     height: 120px;
-}
-
-.p-button-icon-only .p-button-icon-left, .p-button-text-icon-left .p-button-icon-left, .p-button-text-icon-right .p-button-icon-right {
-    height: 95%;
 }
