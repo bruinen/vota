@@ -7,7 +7,6 @@ class App extends Component {
     constructor(data) {
         super(data);
         this.jsonData = require('' + data.config);
-        console.log('data 1 = '+this.jsonData.textDimension);
     }
 
     componentDidMount() {

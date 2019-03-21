@@ -25,7 +25,9 @@ export class Vote extends Component {
                 <div className='content-section implementation splitbutton-demo'>
                     <Growl ref={(el) => this.growl = el}></Growl>
                     {this.jsonData.config.parties.map((party, i) => {
-                        return (<Button label={party.label} icon={'pi pi-' + (i + 1)} onClick={this.save} className={'p-button-secondary p-button-' + this.jsonData.config.textDimension} ref='button'></Button>)
+                        return (<Button key={'party-' + i} label={party.label} onClick={this.save} className={'p-button-secondary p-button-text-icon-left p-button-' + this.jsonData.config.textDimension} ref='button'>
+                            <span className={'pi p-c p-button-icon-left'}><img alt='Symbol Party' src={`data:image/jpeg;base64,${party.image}`}></img></span>
+                        </Button>)
                     })}
                 </div>
             </div>
