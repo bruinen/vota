@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Vote } from './vote/Vote.js';
+import { Vote } from './vote/Vote';
 import './App.css';
 
 class App extends Component {

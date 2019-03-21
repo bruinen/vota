@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'primereact/button';
+import { ButtonData } from './ButtonData';
 import { Growl } from 'primereact/growl';
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -21,13 +21,11 @@ export class Vote extends Component {
     render() {
         return (
             <div>
-
                 <div className='content-section implementation splitbutton-demo'>
                     <Growl ref={(el) => this.growl = el}></Growl>
                     {this.jsonData.config.parties.map((party, i) => {
-                        return (<Button key={'party-' + i} label={party.label} onClick={this.save} className={'p-button-secondary p-button-text-icon-left p-button-' + this.jsonData.config.textDimension} ref='button'>
-                            <span className={'pi p-c p-button-icon-left'}><img alt='Symbol Party' src={`data:image/jpeg;base64,${party.image}`}></img></span>
-                        </Button>)
+                        return (<ButtonData key={'party-' + i} label={party.label} onClick={this.save} icon='pi' icondata={`data:image/jpeg;base64,${party.image}`} className={'p-button-secondary p-button-' + this.jsonData.config.textDimension} ref='button'>
+                        </ButtonData>)
                     })}
                 </div>
             </div>
