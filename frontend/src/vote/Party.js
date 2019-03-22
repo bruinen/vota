@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'primereact/button';
 import classNames from 'classnames';
 
-export class ButtonData extends Button {
+export class Party extends Button {
 
     renderIcon() {
         if (this.props.icon) {
