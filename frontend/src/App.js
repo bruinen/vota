@@ -30,9 +30,6 @@ class App extends Component {
             <div className='App'>
                 <div className="content-section implementation">
                     <TabMenu model={this.state.items} activeItem={this.state.activeItem} onTabChange={(e) => {
-                        console.log(e);
-                        console.log(this);
-                        console.log(this.state);
                         this.setState({ activeItem: e.value });
                     }
                     } />
