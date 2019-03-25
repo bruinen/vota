@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { VotingPaper } from './vote/VotingPaper';
 import { TabMenu } from 'primereact/tabmenu';
 import './App.css';
@@ -19,8 +20,12 @@ class App extends Component {
     }
 
     componentDidMount() {
+        const tabs = ReactDOM.findDOMNode(this).querySelectorAll('.p-menuitem-link');
+        tabs[0].click();
+        console.log('refs = ' + this.refs);
         this.jsonData.votingPapers.map((votingPaper, i) => {
             console.debug('type = ' + votingPaper.type);
+            tabs[i].className = tabs[i].className + ' App-' + this.jsonData.votingPapers[i].type;
             return this.refs['header' + i].className = this.refs['header' + i].className + ' App-' + this.jsonData.votingPapers[i].type;
         })
     }

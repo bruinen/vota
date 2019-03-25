@@ -45,3 +45,47 @@
     transform: rotate(360deg);
   }
 }
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+    border: 1px solid #c8c8c8;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link .p-menuitem-text {
+    color: #333333;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+    border: 1px solid #c8c8c8;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-municipal {
+    background-color: pink;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-municipal {
+    background-color: pink;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-regional {
+    background-color: red;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-regional {
+    background-color: red;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-national {
+    background-color: yellow;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-national {
+    background-color: yellow;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-continental {
+    background-color: blue;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-continental {
+    background-color: blue;
+}
