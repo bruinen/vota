@@ -13,7 +13,7 @@ export class Party extends Button {
 
             return (
                 <span className={className}>
-                    {this.props.icondata && <img alt='Party symbol' src={this.props.icondata} style={{ 'width': '120px', 'height': '120px' }} />}</span>
+                    {this.props.icondata && <img alt='Party symbol' src={this.props.icondata} style={{ 'width': '70px', 'height': '70px' }} />}</span>
             );
         }
         else {
