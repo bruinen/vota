@@ -12,17 +12,16 @@ class App extends Component {
         this.state = {
             items: [
             ],
-            activeItem: { label: this.jsonData.votingPapers[0].type }
+            activeItem: { label: this.jsonData.votingPapers[0].name }
         };
         this.jsonData.votingPapers.map((votingPaper) => {
-            return this.state.items.push({ label: votingPaper.type })
+            return this.state.items.push({ label: votingPaper.name })
         });
     }
 
     componentDidMount() {
         const tabs = ReactDOM.findDOMNode(this).querySelectorAll('.p-menuitem-link');
         tabs[0].click();
-        console.log('refs = ' + this.refs);
         this.jsonData.votingPapers.map((votingPaper, i) => {
             console.debug('type = ' + votingPaper.type);
             tabs[i].className = tabs[i].className + ' App-' + this.jsonData.votingPapers[i].type;
@@ -40,7 +39,7 @@ class App extends Component {
                     } />
                 </div>
                 {this.jsonData.votingPapers.map((votingPaper, i) => {
-                    return (<header key={'header' + i} className='App-header' ref={'header' + i} style={votingPaper.type !== this.state.activeItem['label'] ? { 'display': 'none' } : {}}>
+                    return (<header key={'header' + i} className='App-header' ref={'header' + i} style={votingPaper.name !== this.state.activeItem['label'] ? { 'display': 'none' } : {}}>
                         <VotingPaper config={votingPaper} />
                     </header>)
                 })}
