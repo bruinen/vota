@@ -1,7 +1,6 @@
 body .p-button.p-button-secondary, body .p-buttonset.p-button-secondary > .p-button {
     background-color: white;
     font-size: 12px;
-    padding: 1% 1% 6% 4%;
 }
 
 body .p-button.p-button-text-icon-left .p-button-text {
@@ -17,4 +16,8 @@ body .p-button, body .p-buttonset.p-button-secondary > .p-button {
 .p-button-icon-only .p-button-icon-left, .p-button-text-icon-left .p-button-icon-left, .p-button-text-icon-right .p-button-icon-right {
     margin-top: -.1em;
     margin-left: -8px;
+}
+
+.content-party {
+    display: inline-block;
 }

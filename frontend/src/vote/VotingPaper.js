@@ -35,7 +35,7 @@ export class VotingPaper extends Component {
                 {this.jsonData.config.groups.map((coalition, j) => {
                     let party;
                     party = this.renderParties(coalition, j);
-                    return <div key={'parties-' + j} className='content-section implementation'>
+                    return <div key={'parties-' + j} className='content-party'>
                         {party}
                     </div>
                 })
