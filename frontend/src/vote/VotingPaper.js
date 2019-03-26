@@ -32,7 +32,7 @@ export class VotingPaper extends Component {
         return (
             <div>
                 <Growl ref={(el) => this.growl = el}></Growl>
-                {this.jsonData.config.coalitions.map((coalition, j) => {
+                {this.jsonData.config.groups.map((coalition, j) => {
                     let party;
                     party = this.renderParties(coalition, j);
                     return <div key={'parties-' + j} className='content-section implementation'>
