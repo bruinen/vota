@@ -8,42 +8,6 @@ body .p-button.p-button-text-icon-left .p-button-text {
     position: absolute;
 }
 
-body .p-button.p-button-little, body .p-buttonset.p-button-secondary > .p-button {
-    font-size: 12px;
-}
-
-body .p-button.p-button-little .pi {
-    top: 10%;
-}
-
-body .p-button.p-button-little.p-button-text-icon-left .p-button-text {
-    top: 10%;
-}
-
-body .p-button.p-button-middle, body .p-buttonset.p-button-secondary > .p-button {
-    font-size: 15px;
-}
-
-body .p-button.p-button-middle .pi {
-    top: 10%;
-}
-
-body .p-button.p-button-middle.p-button-text-icon-left .p-button-text {
-    top: 10%;
-}
-
-body .p-button.p-button-grand, body .p-buttonset.p-button-secondary > .p-button {
-    font-size: 18px;
-}
-
-body .p-button.p-button-grand .pi {
-    top: 13%;
-}
-
-body .p-button.p-button-grand.p-button-text-icon-left .p-button-text {
-    top: 30%;
-}
-
 body .p-button, body .p-buttonset.p-button-secondary > .p-button {
     margin-right: 0.25em;
     width: 180px;

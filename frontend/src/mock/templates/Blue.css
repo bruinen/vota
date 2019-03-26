@@ -1,0 +1,25 @@
+.App-bluetemplate {
+  border-color: blue;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-bluetemplate {
+    background-color: blue;
+    border-color: blue;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-bluetemplate {
+    background-color: blue;
+    border-color: blue;
+}
+
+body .App-bluetemplate .p-button, body .p-buttonset.p-button-secondary > .p-button {
+    font-size: 12px;
+}
+
+body .App-bluetemplate .p-button .pi {
+    top: 10%;
+}
+
+body .App-bluetemplate .p-button.p-button-text-icon-left .p-button-text {
+    top: 10%;
+}

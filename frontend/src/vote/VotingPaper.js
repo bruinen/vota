@@ -18,16 +18,28 @@ export class VotingPaper extends Component {
         this.growl.show({ severity: 'success', summary: 'Success', detail: 'Data Saved' });
     }
 
+    renderParties(coalition, j) {
+        return coalition.parties.map((party, i) => {
+
+            return (
+                <Party key={'party-' + coalition.name + '-' + j + i} label={party.label} onClick={this.save} icon='pi' icondata={`data:image/jpeg;base64,${party.image}`} className={'p-button-secondary'} ref='button'>
+                </Party>
+            )
+        })
+    }
+
     render() {
         return (
             <div>
-                <div className='content-section implementation splitbutton-demo'>
-                    <Growl ref={(el) => this.growl = el}></Growl>
-                    {this.jsonData.config.parties.map((party, i) => {
-                        return (<Party key={'party-' + i} label={party.label} onClick={this.save} icon='pi' icondata={`data:image/jpeg;base64,${party.image}`} className={'p-button-secondary p-button-' + this.jsonData.config.textDimension} ref='button'>
-                        </Party>)
-                    })}
-                </div>
+                <Growl ref={(el) => this.growl = el}></Growl>
+                {this.jsonData.config.coalitions.map((coalition, j) => {
+                    let party;
+                    party = this.renderParties(coalition, j);
+                    return <div key={'parties-' + j} className='content-section implementation'>
+                        {party}
+                    </div>
+                })
+                }
             </div>
         )
     }

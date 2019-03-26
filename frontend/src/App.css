@@ -9,28 +9,12 @@
 
 .App-header {
   background: url("/background.png");
-  min-height: 100vh;
+  min-height: 94.5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 10px solid #000;
-}
-
-.App-pinktemplate {
-  border-color: pink;
-}
-
-.App-redtemplate {
-  border-color: red;
-}
-
-.App-yellowtemplate {
-  border-color: yellow;
-}
-
-.App-bluetemplate {
-  border-color: blue;
 }
 
 .App-link {
@@ -52,44 +36,4 @@ body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
 
 body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link .p-menuitem-text {
     color: #333333;
-}
-
-body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-pinktemplate {
-    background-color: pink;
-    border-color: pink;
-}
-
-body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-pinktemplate {
-    background-color: pink;
-    border-color: pink;
-}
-
-body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-redtemplate {
-    background-color: red;
-    border-color: red;
-}
-
-body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-redtemplate {
-    background-color: red;
-    border-color: red;
-}
-
-body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-yellowtemplate {
-    background-color: yellow;
-    border-color: yellow;
-}
-
-body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-yellowtemplate {
-    background-color: yellow;
-    border-color: yellow;
-}
-
-body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-bluetemplate {
-    background-color: blue;
-    border-color: blue;
-}
-
-body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-bluetemplate {
-    background-color: blue;
-    border-color: blue;
 }

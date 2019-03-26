@@ -1,0 +1,25 @@
+.App-redtemplate {
+  border-color: red;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-redtemplate {
+    background-color: red;
+    border-color: red;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-redtemplate {
+    background-color: red;
+    border-color: red;
+}
+
+body .App-redtemplate .p-button, body .p-buttonset.p-button-secondary > .p-button {
+    font-size: 15px;
+}
+
+body .App-redtemplate .p-button .pi {
+    top: 10%;
+}
+
+body .App-redtemplate .p-button.p-button-text-icon-left .p-button-text {
+    top: 10%;
+}

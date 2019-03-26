@@ -1,0 +1,25 @@
+.App-pinktemplate {
+  border-color: pink;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-pinktemplate {
+    background-color: pink;
+    border-color: pink;
+}
+
+body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-pinktemplate {
+    background-color: pink;
+    border-color: pink;
+}
+
+body .App-pinktemplate .p-button, body .p-buttonset.p-button-secondary > .p-button {
+    font-size: 18px;
+}
+
+body .App-pinktemplate .p-button .pi {
+    top: 13%;
+}
+
+body .App-pinktemplate .p-button.p-button-text-icon-left .p-button-text {
+    top: 30%;
+}
