@@ -30,6 +30,7 @@ body .App-yellowtemplate .content-party {
     grid-gap: 1px;
     padding: 10px;
     grid-template-columns: 49% 49%;
+    width: 30.9%;
 }
 
 body .App-yellowtemplate .first-row {

@@ -28,11 +28,13 @@ export class VotingPaper extends Component {
     }
 
     renderCandidate(group, j) {
-        if (group.name)
+        if (group.name) {
+            var gridRow = { 'gridRow': '1 / ' + (group.parties.length + 1) };
             return (
-                <Party key={'candidate-' + group.name + '-' + j} label={group.name} onClick={this.save} className={'p-button-secondary first-row'} ref='candidate'>
+                <Party key={'candidate-' + group.name + '-' + j} label={group.name} onClick={this.save} className={'p-button-secondary first-row'} style={gridRow} ref='candidate'>
                 </Party>
             )
+        }
     }
 
     render() {
