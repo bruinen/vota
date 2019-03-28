@@ -23,9 +23,8 @@ class App extends Component {
         const tabs = ReactDOM.findDOMNode(this).querySelectorAll('.p-menuitem-link');
         tabs[0].click();
         this.jsonData.votingPapers.map((votingPaper, i) => {
-            console.debug('type = ' + votingPaper.type);
-            tabs[i].className = tabs[i].className + ' App-' + this.jsonData.votingPapers[i].type;
-            return this.refs['header' + i].className = this.refs['header' + i].className + ' App-' + this.jsonData.votingPapers[i].type;
+            tabs[i].className = tabs[i].className + ' App-' + votingPaper.type;
+            return this.refs['header' + i].className = this.refs['header' + i].className + ' App-' + votingPaper.type;
         })
     }
 

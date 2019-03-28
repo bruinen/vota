@@ -24,3 +24,13 @@ body .App-redtemplate .p-button.p-button-text-icon-left .p-button-text {
     top: 10%;
     left: 25%;
 }
+
+body .App-redtemplate .content-party {
+    display: grid;
+}
+
+body .App-redtemplate .first-row {
+    grid-column: 1 / 3;
+    width: 99%;
+    height: 100%;
+}

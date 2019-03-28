@@ -18,24 +18,33 @@ export class VotingPaper extends Component {
         this.growl.show({ severity: 'success', summary: 'Success', detail: 'Data Saved' });
     }
 
-    renderParties(coalition, j) {
-        return coalition.parties.map((party, i) => {
-
+    renderParties(group, j) {
+        return group.parties.map((party, i) => {
             return (
-                <Party key={'party-' + coalition.name + '-' + j + i} label={party.label} onClick={this.save} icon='pi' icondata={`data:image/jpeg;base64,${party.image}`} className={'p-button-secondary'} ref='button'>
+                <Party key={'party-' + group.name + '-' + j + i} label={party.label} onClick={this.save} icon='pi' icondata={`data:image/jpeg;base64,${party.image}`} className={'p-button-secondary'} ref='button'>
                 </Party>
             )
         })
+    }
+
+    renderCandidate(group, j) {
+        if (group.name)
+            return (
+                <Party key={'candidate-' + group.name + '-' + j} label={group.name} onClick={this.save} className={'p-button-secondary first-row'} ref='candidate'>
+                </Party>
+            )
     }
 
     render() {
         return (
             <div>
                 <Growl ref={(el) => this.growl = el}></Growl>
-                {this.jsonData.config.groups.map((coalition, j) => {
-                    let party;
-                    party = this.renderParties(coalition, j);
+                {this.jsonData.config.groups.map((group, j) => {
+                    let party, candidate;
+                    party = this.renderParties(group, j);
+                    candidate = this.renderCandidate(group, j);
                     return <div key={'parties-' + j} className='content-party'>
+                        {candidate}
                         {party}
                     </div>
                 })
