@@ -27,10 +27,13 @@ body .App-pinktemplate .p-button.p-button-text-icon-left .p-button-text {
 
 body .App-pinktemplate .content-party {
     display: grid;
+    grid-gap: 1px;
+    padding: 10px;
+    grid-template-columns: 49% 49%;
 }
 
 body .App-pinktemplate .first-row {
     grid-column: 1 / 3;
-    width: 98.7%;
+    width: 99.6%;
     height: 100%;
 }
