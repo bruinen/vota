@@ -16,13 +16,19 @@ body .App-redtemplate .p-button, body .p-buttonset.p-button-secondary > .p-butto
     font-size: 15px;
 }
 
-body .App-redtemplate .p-button .pi {
-    top: 10%;
+body .App-redtemplate .p-button.p-button-text-icon-left .p-button-text {
+    top: 15%;
+    left: 25%;
 }
 
-body .App-redtemplate .p-button.p-button-text-icon-left .p-button-text {
+body .App-redtemplate .p-button.is-grid.p-button-text-icon-left .p-button-text {
     top: 40%;
-    left: 25%;
+}
+
+body .p-button.p-button-text-icon-left .p-button-subtext {
+    left: 23%;
+    top: 75%;
+    right: 12%;
 }
 
 body .App-redtemplate .content-party {
@@ -40,6 +46,7 @@ body .App-redtemplate .first-row {
 body .App-redtemplate .p-button.first-row.p-button-text-icon-left .p-button-text {
     left: -30px;
     width: 86%;
+    padding: 6px 16px 14px 30px;
 }
 
 body .App-redtemplate .first-row .pi.p-c.p-button-icon-left {

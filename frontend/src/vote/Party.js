@@ -21,13 +21,26 @@ export class Party extends Button {
         }
     }
 
+    renderLabel() {
+        const buttonLabel = this.props.label.split('|')[0] || 'p-btn';
+        var buttonSublabel = '';
+        if (this.props.label.split('|')[1] !== 'undefined')
+            buttonSublabel = this.props.label.split('|')[1];
+
+        return (
+            <span className="p-button-text p-c">{buttonLabel}
+                <span className="p-button-subtext p-c">{buttonSublabel}</span>
+            </span>
+        );
+    }
+
     render() {
         let className = classNames('p-button p-component', this.props.className, {
-                'p-button-icon-only': this.props.icon && !this.props.label,
-                'p-button-text-icon-left': this.props.icon && this.props.label && this.props.iconPos === 'left',
-                'p-button-text-icon-right': this.props.icon && this.props.label && this.props.iconPos === 'right',
-                'p-button-text-only': !this.props.icon && this.props.label,
-                'p-disabled': this.props.disabled
+            'p-button-icon-only': this.props.icon && !this.props.label,
+            'p-button-text-icon-left': this.props.icon && this.props.label && this.props.iconPos === 'left',
+            'p-button-text-icon-right': this.props.icon && this.props.label && this.props.iconPos === 'right',
+            'p-button-text-only': !this.props.icon && this.props.label,
+            'p-disabled': this.props.disabled
         });
         let icon = this.renderIcon();
         let label = this.renderLabel();
