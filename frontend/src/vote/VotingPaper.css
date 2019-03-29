@@ -13,9 +13,11 @@ body .p-button, body .p-buttonset.p-button-secondary > .p-button {
     height: 90px;
 }
 
-.p-button-icon-only .p-button-icon-left, .p-button-text-icon-left .p-button-icon-left, .p-button-text-icon-right .p-button-icon-right {
+.p-button-icon-only .p-button-icon-left, .p-button-text-icon-left .p-button-icon-left, .p-button-text-icon-right .p-button-icon-right {    
+    position: relative;
     margin-top: -.1em;
     margin-left: -8px;
+    margin-right: 100%
 }
 
 body .content-party {

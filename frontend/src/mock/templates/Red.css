@@ -21,7 +21,7 @@ body .App-redtemplate .p-button .pi {
 }
 
 body .App-redtemplate .p-button.p-button-text-icon-left .p-button-text {
-    top: 10%;
+    top: 40%;
     left: 25%;
 }
 
@@ -35,4 +35,13 @@ body .App-redtemplate .content-party {
 body .App-redtemplate .first-row {
     grid-column: 2;
     height: 100%;
+}
+
+body .App-redtemplate .p-button.first-row.p-button-text-icon-left .p-button-text {
+    left: -30px;
+    width: 86%;
+}
+
+body .App-redtemplate .first-row .pi.p-c.p-button-icon-left {
+    left: 62%;
 }
