@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'primereact/button';
+import { Candidates } from './Candidates';
 import classNames from 'classnames';
 
 export class Party extends Button {
@@ -22,16 +23,22 @@ export class Party extends Button {
     }
 
     renderLabel() {
-        const buttonLabel = this.props.label.split('|')[0] || 'p-btn';
-        var buttonSublabel = '';
-        if (this.props.label.split('|')[1] !== 'undefined')
-            buttonSublabel = this.props.label.split('|')[1];
+        if (this.props.label) {
+            const buttonLabel = this.props.label.split('|')[0] || 'p-btn';
+            var buttonSublabel = '';
+            if (this.props.label.split('|')[1] !== 'undefined')
+                buttonSublabel = this.props.label.split('|')[1];
+            return (
+                <span className="p-button-text p-c">{buttonLabel}
+                    <span className="p-button-subtext p-c">{buttonSublabel}</span>
+                </span>
+            );
+        }
+    }
 
-        return (
-            <span className="p-button-text p-c">{buttonLabel}
-                <span className="p-button-subtext p-c">{buttonSublabel}</span>
-            </span>
-        );
+    renderCandidates() {
+        if (this.props.candidates)
+            return (<Candidates config={this.props.candidates} />);
     }
 
     render() {
@@ -44,6 +51,7 @@ export class Party extends Button {
         });
         let icon = this.renderIcon();
         let label = this.renderLabel();
+        let candidates = this.renderCandidates();
 
         let buttonProps = Object.assign({}, this.props);
         delete buttonProps.iconPos;
@@ -54,12 +62,12 @@ export class Party extends Button {
         delete buttonProps.tooltipOptions;
 
         return (
-            <button ref={(el) => this.element = el} {...buttonProps} className={className}>
+            <div ref={(el) => this.element = el} {...buttonProps} className={className}>
                 {this.props.iconPos === 'left' && icon}
                 {label}
                 {this.props.iconPos === 'right' && icon}
                 {this.props.children}
-            </button>
+            </div>
         );
     }
 }

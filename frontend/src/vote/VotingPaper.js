@@ -21,7 +21,7 @@ export class VotingPaper extends Component {
     renderParties(group, j) {
         return group.parties.map((party, i) => {
             return (
-                <Party key={'party-' + group.name + '-' + j + i} label={party.name} onClick={this.save} icon='pi' icondata={`data:image/jpeg;base64,${party.image}`} className={'p-button-secondary'} ref='button'>
+                <Party key={'party-' + group.name + '-' + j + i} label={party.name} onClick={this.save} icon='pi' icondata={`data:image/jpeg;base64,${party.image}`} className={'p-button-secondary'} candidates={party.candidates} ref='button'>
                 </Party>
             )
         })

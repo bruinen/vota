@@ -52,3 +52,7 @@ body .App-redtemplate .p-button.first-row.p-button-text-icon-left .p-button-text
 body .App-redtemplate .first-row .pi.p-c.p-button-icon-left {
     left: 62%;
 }
+
+body .App-redtemplate .p-button-text-icon-left .p-button-icon-left {
+    margin-top: -1.8em;
+}
