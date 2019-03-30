@@ -56,3 +56,16 @@ body .App-redtemplate .first-row .pi.p-c.p-button-icon-left {
 body .App-redtemplate .p-button-text-icon-left .p-button-icon-left {
     margin-top: -1.8em;
 }
+
+body .App-redtemplate .candidates {
+    position: absolute;
+    bottom: 10%;
+}
+
+body .App-redtemplate .candidates .p-autocomplete .p-inputtext {
+    width: 60%;
+    margin-left: 40%;
+    border: none;
+    font-size: 12px;
+    margin-bottom: 2.2%;
+}

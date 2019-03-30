@@ -28,10 +28,9 @@ export class Party extends Button {
             var buttonSublabel = '';
             if (this.props.label.split('|')[1] !== 'undefined')
                 buttonSublabel = this.props.label.split('|')[1];
-            return (
-                <span className="p-button-text p-c">{buttonLabel}
-                    <span className="p-button-subtext p-c">{buttonSublabel}</span>
-                </span>
+            return (<span className="p-button-text p-c">{buttonLabel}
+                <span className="p-button-subtext p-c">{buttonSublabel}</span>
+            </span>
             );
         }
     }
@@ -43,10 +42,10 @@ export class Party extends Button {
 
     render() {
         let className = classNames('p-button p-component', this.props.className, {
-            'p-button-icon-only': this.props.icon && !this.props.label,
-            'p-button-text-icon-left': this.props.icon && this.props.label && this.props.iconPos === 'left',
-            'p-button-text-icon-right': this.props.icon && this.props.label && this.props.iconPos === 'right',
-            'p-button-text-only': !this.props.icon && this.props.label,
+            'p-button-icon-only': this.props.icon && !this.props.label && !this.props.candidates,
+            'p-button-text-icon-left': this.props.icon && (this.props.label || this.props.candidates) && this.props.iconPos === 'left',
+            'p-button-text-icon-right': this.props.icon && (this.props.label || this.props.candidates) && this.props.iconPos === 'right',
+            'p-button-text-only': !this.props.icon && (this.props.label || this.props.candidates),
             'p-disabled': this.props.disabled
         });
         let icon = this.renderIcon();
@@ -65,6 +64,7 @@ export class Party extends Button {
             <div ref={(el) => this.element = el} {...buttonProps} className={className}>
                 {this.props.iconPos === 'left' && icon}
                 {label}
+                {candidates}
                 {this.props.iconPos === 'right' && icon}
                 {this.props.children}
             </div>

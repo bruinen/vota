@@ -25,7 +25,7 @@ export class Candidates extends Component {
             }
             else {
                 results = this.candidates.filter((candidate) => {
-                    return candidate.toLowerCase().startsWith(event.query.toLowerCase());
+                    return candidate.name.toLowerCase().startsWith(event.query.toLowerCase());
                 });
             }
 
@@ -34,17 +34,20 @@ export class Candidates extends Component {
     }
 
     itemTemplate(candidate) {
+        let image;
+        if (candidate.image)
+            image = <img alt={candidate.name} src={`data:image/jpeg;base64,${candidate.image}`} style={{ width: '32px', display: 'inline-block', margin: '5px 0 2px 5px' }} />;
         return (
             <div className="p-clearfix">
-                <img alt={candidate.name} src={`data:image/jpeg;base64,${candidate.image}`} style={{ width: '32px', display: 'inline-block', margin: '5px 0 2px 5px' }} />
+                {image}
                 <div style={{ fontSize: '16px', float: 'right', margin: '10px 10px 0 0' }}>{candidate.name}</div>
             </div>
         );
     }
 
     render() {
-        return (<div><AutoComplete value={this.state.candidate} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
-            placeholder="_________________" dropdown={true} itemTemplate={this.itemTemplate.bind(this)} onChange={(e) => this.setState({ candidate: e.value })} />
-            <span style={{ marginLeft: '50px' }}>Candidate: {this.state.candidate || 'none'}</span></div>);
+        return (<div className='candidates'><AutoComplete value={this.state.candidate} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
+            placeholder="________________________" itemTemplate={this.itemTemplate.bind(this)} onChange={(e) => this.setState({ candidate: e.value.name })} /><AutoComplete value={this.state.candidate} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
+                placeholder="________________________" itemTemplate={this.itemTemplate.bind(this)} onChange={(e) => this.setState({ candidate: e.value.name })} /></div>);
     }
 }
