@@ -14,6 +14,7 @@ export class Candidates extends Component {
 
     componentDidMount() {
         this.candidates = this.props.config;
+        this.maxCandidares = this.props.maxcandidates;
     }
 
     filterCandidates(event) {
@@ -40,14 +41,20 @@ export class Candidates extends Component {
         return (
             <div className="p-clearfix">
                 {image}
-                <div style={{ fontSize: '16px', float: 'right', margin: '10px 10px 0 0' }}>{candidate.name}</div>
+                <div style={{ fontSize: '16px' }}>{candidate.name}</div>
             </div>
         );
     }
 
     render() {
-        return (<div className='candidates'><AutoComplete value={this.state.candidate} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
-            placeholder="________________________" itemTemplate={this.itemTemplate.bind(this)} onChange={(e) => this.setState({ candidate: e.value.name })} /><AutoComplete value={this.state.candidate} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
-                placeholder="________________________" itemTemplate={this.itemTemplate.bind(this)} onChange={(e) => this.setState({ candidate: e.value.name })} /></div>);
+        let candidates = [];
+        for (let i = 0; i < this.maxCandidares; i++) {
+            candidates.push(<AutoComplete key={'autocomplete-candidate-' + i} value={this.state.candidate} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
+                placeholder="________________________" itemTemplate={this.itemTemplate.bind(this)} onChange={(e) => this.setState({ candidate: e.value.name })} />);
+        }
+        return (
+            <div className='candidates'>
+                {candidates}
+            </div>);
     }
 }

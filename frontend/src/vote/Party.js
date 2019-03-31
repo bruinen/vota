@@ -37,7 +37,7 @@ export class Party extends Button {
 
     renderCandidates() {
         if (this.props.candidates)
-            return (<Candidates config={this.props.candidates} />);
+            return (<Candidates config={this.props.candidates} maxcandidates={this.props.maxcandidates} />);
     }
 
     render() {
