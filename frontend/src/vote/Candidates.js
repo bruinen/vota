@@ -10,6 +10,7 @@ export class Candidates extends Component {
         };
 
         this.filterCandidates = this.filterCandidates.bind(this);
+        this.chosenCandidates = [];
     }
 
     componentDidMount() {
@@ -19,10 +20,13 @@ export class Candidates extends Component {
 
     filterCandidates(event) {
         setTimeout(() => {
+
             let results;
 
             if (event.query.length === 0) {
-                results = [...this.candidates];
+                results = this.candidates.filter((candidate) => {
+                    return !this.chosenCandidates.find(el => el === candidate.name);
+                });
             }
             else {
                 results = this.candidates.filter((candidate) => {
@@ -55,8 +59,14 @@ export class Candidates extends Component {
         var stateObject = function () {
             let returnObj = {};
             returnObj['candidate' + i] = e.value.name;
+            this.chosenCandidates.push(e.value.name);
             return returnObj;
         };
+        let person = this.state['candidate' + i];
+        if (person) {
+            var index = this.chosenCandidates.indexOf(person);
+            this.chosenCandidates.splice(index, 1);
+        }
         this.setState(stateObject);
     }
 
