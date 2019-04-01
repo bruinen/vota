@@ -43,6 +43,46 @@ public class JavaAppApplicationTests {
 				.getResourceAsStream("/parties/fratelliditalia.png");
 		logger.info(new String(Base64.getEncoder().encodeToString(fratellidItalia.readAllBytes())));
 		Assert.assertNotNull(fratellidItalia);
+
+		BufferedInputStream autonomistiPopolari = (BufferedInputStream) this.getClass()
+				.getResourceAsStream("/parties/autonomistipopolari.png");
+		logger.info(new String(Base64.getEncoder().encodeToString(autonomistiPopolari.readAllBytes())));
+		Assert.assertNotNull(autonomistiPopolari);
+
+		BufferedInputStream cercasiPartito = (BufferedInputStream) this.getClass()
+				.getResourceAsStream("/parties/cercasipartito.png");
+		logger.info(new String(Base64.getEncoder().encodeToString(cercasiPartito.readAllBytes())));
+		Assert.assertNotNull(cercasiPartito);
+
+		BufferedInputStream futura2018 = (BufferedInputStream) this.getClass()
+				.getResourceAsStream("/parties/futura2018.png");
+		logger.info(new String(Base64.getEncoder().encodeToString(futura2018.readAllBytes())));
+		Assert.assertNotNull(futura2018);
+
+		BufferedInputStream laltraEuropa = (BufferedInputStream) this.getClass()
+				.getResourceAsStream("/parties/laltraeuropa.png");
+		logger.info(new String(Base64.getEncoder().encodeToString(laltraEuropa.readAllBytes())));
+		Assert.assertNotNull(laltraEuropa);
+
+		BufferedInputStream legaNord = (BufferedInputStream) this.getClass()
+				.getResourceAsStream("/parties/leganord.png");
+		logger.info(new String(Base64.getEncoder().encodeToString(legaNord.readAllBytes())));
+		Assert.assertNotNull(legaNord);
+
+		BufferedInputStream partitoSocialista = (BufferedInputStream) this.getClass()
+				.getResourceAsStream("/parties/partitosocialista.png");
+		logger.info(new String(Base64.getEncoder().encodeToString(partitoSocialista.readAllBytes())));
+		Assert.assertNotNull(partitoSocialista);
+
+		BufferedInputStream partitoRadicale = (BufferedInputStream) this.getClass()
+				.getResourceAsStream("/parties/partitoradicale.png");
+		logger.info(new String(Base64.getEncoder().encodeToString(partitoRadicale.readAllBytes())));
+		Assert.assertNotNull(partitoRadicale);
+
+		BufferedInputStream sceltaEuropea = (BufferedInputStream) this.getClass()
+				.getResourceAsStream("/parties/sceltaeuropea.png");
+		logger.info(new String(Base64.getEncoder().encodeToString(sceltaEuropea.readAllBytes())));
+		Assert.assertNotNull(sceltaEuropea);
 	}
 
 	@Test
