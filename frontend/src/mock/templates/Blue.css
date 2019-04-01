@@ -14,6 +14,8 @@ body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .App-bluetemplate {
 
 body .App-bluetemplate .p-button, body .p-buttonset.p-button-secondary > .p-button {
     font-size: 12px;
+    margin-right: 0.1em;
+    margin-bottom: 0.1em;
 }
 
 body .App-bluetemplate .p-button .pi {
