@@ -14,7 +14,7 @@ export class Candidates extends Component {
 
     componentDidMount() {
         this.candidates = this.props.config;
-        this.maxCandidares = this.props.maxcandidates;
+        this.maxCandidates = this.props.maxcandidates;
     }
 
     filterCandidates(event) {
@@ -46,11 +46,26 @@ export class Candidates extends Component {
         );
     }
 
+    onDropdownClick(event, i) {
+        let dropDown = this.refs['autocomplete-candidate-' + i];
+        dropDown.onDropdownClick(event);
+    }
+
+    onAutocompleteChange(e, i) {
+        var stateObject = function () {
+            let returnObj = {};
+            returnObj['candidate' + i] = e.value.name;
+            return returnObj;
+        };
+        this.setState(stateObject);
+    }
+
     render() {
         let candidates = [];
-        for (let i = 0; i < this.maxCandidares; i++) {
-            candidates.push(<AutoComplete key={'autocomplete-candidate-' + i} value={this.state.candidate} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
-                placeholder="____________________________________" itemTemplate={this.itemTemplate.bind(this)} onChange={(e) => this.setState({ candidate: e.value.name })} />);
+        for (let i = 0; i < this.maxCandidates; i++) {
+            candidates.push(<AutoComplete key={'autocomplete-candidate-' + i} ref={'autocomplete-candidate-' + i} onClick={(e) => { this.onDropdownClick(e, i) }} value={this.state['candidate' + i]} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
+                placeholder={(i + 1) + ' ___________________________________'} itemTemplate={this.itemTemplate.bind(this)} selectedItemTemplate={(e) => (i + 1) + ' ' + e} onChange={(e) => this.onAutocompleteChange(e, i)}>
+            </AutoComplete>);
         }
         return (
             <div className='candidates'>
