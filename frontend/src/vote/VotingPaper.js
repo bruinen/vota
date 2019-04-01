@@ -36,8 +36,17 @@ export class VotingPaper extends Component {
             let icon;
             if (group.image)
                 icon = 'pi';
+            let buttonProps = Object.assign({});
+            buttonProps.key = 'candidate-' + group.name + '-' + j;
+            buttonProps.label = group.name + '|' + group.subtitle;
+            buttonProps.icon = icon;
+            buttonProps.icondata = `data:image/jpeg;base64,${group.image}`;
+            buttonProps.className = 'p-button-secondary first-row ' + isAGrid;
+            buttonProps.style = gridRow;
+            buttonProps.ref = 'candidate-' + group.name + '-' + j;
+            buttonProps.onClick = this.save;
             return (
-                <Party key={'candidate-' + group.name + '-' + j} label={group.name + '|' + group.subtitle} onClick={this.save} icon={icon} icondata={`data:image/jpeg;base64,${group.image}`} className={'p-button-secondary first-row ' + isAGrid} style={gridRow} ref='candidate'>
+                <Party {...buttonProps}>
                 </Party>
             )
         }

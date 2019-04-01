@@ -17,12 +17,8 @@ body .App-redtemplate .p-button, body .p-buttonset.p-button-secondary > .p-butto
 }
 
 body .App-redtemplate .p-button.p-button-text-icon-left .p-button-text {
-    top: 15%;
+    top: 42%;
     left: 25%;
-}
-
-body .App-redtemplate .p-button.is-grid.p-button-text-icon-left .p-button-text {
-    top: 40%;
 }
 
 body .p-button.p-button-text-icon-left .p-button-subtext {
@@ -36,6 +32,7 @@ body .App-redtemplate .content-party {
     grid-gap: 1px;
     padding: 10px;
     grid-template-columns: 49% 49%;
+    width: 49.3%;
 }
 
 body .App-redtemplate .first-row {
@@ -50,11 +47,11 @@ body .App-redtemplate .p-button.first-row.p-button-text-icon-left .p-button-text
 }
 
 body .App-redtemplate .first-row .pi.p-c.p-button-icon-left {
-    left: 62%;
+    left: 72%;
 }
 
 body .App-redtemplate .p-button-text-icon-left .p-button-icon-left {
-    margin-top: -1.8em;
+    margin-top: -2.4em;
 }
 
 body .App-redtemplate .candidates {
@@ -63,9 +60,9 @@ body .App-redtemplate .candidates {
 }
 
 body .App-redtemplate .candidates .p-autocomplete .p-inputtext {
-    width: 60%;
+    width: 70%;
     margin-left: 40%;
     border: none;
-    font-size: 11px;
+    font-size: 13px;
     margin-bottom: 2.2%;
 }

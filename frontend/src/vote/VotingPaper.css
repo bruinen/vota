@@ -13,8 +13,8 @@ body .p-button.p-button-text-icon-left .p-button-subtext {
 
 body .p-button, body .p-buttonset.p-button-secondary > .p-button {
     margin-right: 0.25em;
-    width: 180px;
-    height: 90px;
+    width: 295px;
+    height: 120px;
 }
 
 .p-button-icon-only .p-button-icon-left, .p-button-text-icon-left .p-button-icon-left, .p-button-text-icon-right .p-button-icon-right {    
@@ -26,4 +26,5 @@ body .p-button, body .p-buttonset.p-button-secondary > .p-button {
 
 body .content-party {
     float: left;
+    width: 50%;
 }

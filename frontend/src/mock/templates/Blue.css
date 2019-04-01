@@ -1,5 +1,5 @@
 .App-bluetemplate {
-  border-color: blue;
+    border-color: blue;
 }
 
 body .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .App-bluetemplate {
@@ -23,4 +23,9 @@ body .App-bluetemplate .p-button .pi {
 body .App-bluetemplate .p-button.p-button-text-icon-left .p-button-text {
     top: 10%;
     left: 25%;
+}
+
+body .App-bluetemplate .content-party {
+    width: 100%;
+    padding: 10px 50px 1px 1px;
 }
