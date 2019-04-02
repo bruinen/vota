@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 export class Party extends Button {
 
-    putX(e) {
+    putX() {
         if (!this.selectedItem) 
             this.selectedItem = <img className='button-selected' alt='X' src='/x.png' />;
         else this.selectedItem = null;
@@ -27,7 +27,7 @@ export class Party extends Button {
             );
         }
         else {
-            return null;
+            return this.selectedItem;
         }
     }
 

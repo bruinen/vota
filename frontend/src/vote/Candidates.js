@@ -53,6 +53,7 @@ export class Candidates extends Component {
     onDropdownClick(event, i) {
         let dropDown = this.refs['autocomplete-candidate-' + i];
         dropDown.onDropdownClick(event);
+        event.stopPropagation();
     }
 
     onAutocompleteChange(e, i) {

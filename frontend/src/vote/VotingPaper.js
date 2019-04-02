@@ -30,9 +30,9 @@ export class VotingPaper extends Component {
             buttonProps.maxcandidates = party.maxCandidates;
             buttonProps.ref = 'party-' + group.name + '-' + j + i;
             return (
-                <Party {...buttonProps} onClick={(e) => {
+                <Party {...buttonProps} onClick={() => {
                     let button = this.refs[buttonProps.ref];
-                    button.putX(e);
+                    button.putX();
                 }}>
                 </Party>
             )
@@ -57,9 +57,9 @@ export class VotingPaper extends Component {
             buttonProps.style = gridRow;
             buttonProps.ref = 'candidate-' + group.name + '-' + j;
             return (
-                <Party {...buttonProps} onClick={(e) => {
+                <Party {...buttonProps} onClick={() => {
                     let button = this.refs[buttonProps.ref];
-                    button.putX(e);
+                    button.putX();
                 }}>
                 </Party>
             )
