@@ -20,8 +20,18 @@ export class VotingPaper extends Component {
 
     renderParties(group, j) {
         return group.parties.map((party, i) => {
+            let buttonProps = Object.assign({});
+            buttonProps.key = 'party-' + group.name + '-' + j + i;
+            buttonProps.label = party.name;
+            buttonProps.icon = 'pi';
+            buttonProps.icondata = `data:image/jpeg;base64,${party.image}`;
+            buttonProps.className = 'p-button-secondary';
+            buttonProps.onClick = this.save;
+            buttonProps.candidates = party.candidates;
+            buttonProps.maxcandidates = party.maxCandidates;
+            buttonProps.ref = 'button-' + i;
             return (
-                <Party key={'party-' + group.name + '-' + j + i} label={party.name} onClick={this.save} icon='pi' icondata={`data:image/jpeg;base64,${party.image}`} className={'p-button-secondary'} candidates={party.candidates} maxcandidates={party.maxCandidates} ref='button'>
+                <Party {...buttonProps}>
                 </Party>
             )
         })
