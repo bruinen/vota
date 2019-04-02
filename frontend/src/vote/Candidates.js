@@ -75,7 +75,7 @@ export class Candidates extends Component {
         let candidates = [];
         for (let i = 0; i < this.maxCandidates; i++) {
             candidates.push(<AutoComplete key={'autocomplete-candidate-' + i} ref={'autocomplete-candidate-' + i} onClick={(e) => { this.onDropdownClick(e, i) }} value={this.state['candidate' + i]} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
-                placeholder={(i + 1) + ' ___________________________________'} itemTemplate={this.itemTemplate.bind(this)} selectedItemTemplate={(e) => (i + 1) + ' ' + e} onChange={(e) => this.onAutocompleteChange(e, i)}>
+                placeholder={(i + 1) + ' _________________________'} itemTemplate={this.itemTemplate.bind(this)} selectedItemTemplate={(e) => (i + 1) + ' ' + e} onChange={(e) => this.onAutocompleteChange(e, i)}>
             </AutoComplete>);
         }
         return (

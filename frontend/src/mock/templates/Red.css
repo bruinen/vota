@@ -60,7 +60,7 @@ body .App-redtemplate .candidates {
 }
 
 body .App-redtemplate .candidates .p-autocomplete .p-inputtext {
-    width: 70%;
+    width: 65%;
     margin-left: 40%;
     border: none;
     font-size: 13px;
