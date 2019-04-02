@@ -5,6 +5,13 @@ import classNames from 'classnames';
 
 export class Party extends Button {
 
+    putX(e) {
+        if (!this.selectedItem) 
+            this.selectedItem = <img className='button-selected' alt='X' src='/x.png' />;
+        else this.selectedItem = null;
+        this.forceUpdate();
+    }
+
     renderIcon() {
         if (this.props.icon) {
             let className = classNames(this.props.icon, 'p-c', {
@@ -14,7 +21,9 @@ export class Party extends Button {
 
             return (
                 <span className={className}>
-                    {this.props.icondata && <img alt='Party symbol' src={this.props.icondata} style={{ 'width': '90px', 'height': '90px' }} />}</span>
+                    {this.props.icondata && <img alt='Party symbol' src={this.props.icondata} style={{ 'width': '90px', 'height': '90px' }} />}
+                    {this.selectedItem}
+                </span>
             );
         }
         else {

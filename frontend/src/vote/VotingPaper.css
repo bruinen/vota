@@ -33,3 +33,10 @@ body .p-inputtext {
   color: transparent;
   text-shadow: 0 0 0 black;
 }
+
+body .p-button .button-selected {
+  width: 90px; 
+  height: 90px;
+  left: 1%;
+  position: absolute;
+}

@@ -26,12 +26,14 @@ export class VotingPaper extends Component {
             buttonProps.icon = 'pi';
             buttonProps.icondata = `data:image/jpeg;base64,${party.image}`;
             buttonProps.className = 'p-button-secondary';
-            buttonProps.onClick = this.save;
             buttonProps.candidates = party.candidates;
             buttonProps.maxcandidates = party.maxCandidates;
-            buttonProps.ref = 'button-' + i;
+            buttonProps.ref = 'party-' + group.name + '-' + j + i;
             return (
-                <Party {...buttonProps}>
+                <Party {...buttonProps} onClick={(e) => {
+                    let button = this.refs[buttonProps.ref];
+                    button.putX(e);
+                }}>
                 </Party>
             )
         })
@@ -54,9 +56,11 @@ export class VotingPaper extends Component {
             buttonProps.className = 'p-button-secondary first-row ' + isAGrid;
             buttonProps.style = gridRow;
             buttonProps.ref = 'candidate-' + group.name + '-' + j;
-            buttonProps.onClick = this.save;
             return (
-                <Party {...buttonProps}>
+                <Party {...buttonProps} onClick={(e) => {
+                    let button = this.refs[buttonProps.ref];
+                    button.putX(e);
+                }}>
                 </Party>
             )
         }
