@@ -6,7 +6,7 @@ import classNames from 'classnames';
 export class Party extends Button {
 
     putX() {
-        if (!this.selectedItem) 
+        if (!this.selectedItem)
             this.selectedItem = <img className='button-selected' alt='X' src='/x.png' />;
         else this.selectedItem = null;
         this.forceUpdate();
