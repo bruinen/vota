@@ -41,11 +41,11 @@ export class Candidates extends Component {
     itemTemplate(candidate) {
         let image;
         if (candidate.image)
-            image = <img alt={candidate.name} src={`data:image/jpeg;base64,${candidate.image}`} style={{ width: '32px', display: 'inline-block', margin: '5px 0 2px 5px' }} />;
+            image = <img className="excludeSelect" alt={candidate.name} src={`data:image/jpeg;base64,${candidate.image}`} style={{ width: '32px', display: 'inline-block', margin: '5px 0 2px 5px' }} />;
         return (
-            <div className="p-clearfix">
+            <div className="p-clearfix excludeSelect">
                 {image}
-                <div style={{ fontSize: '16px' }}>{candidate.name}</div>
+                <div className="excludeSelect" style={{ fontSize: '16px' }}>{candidate.name}</div>
             </div>
         );
     }
@@ -74,7 +74,7 @@ export class Candidates extends Component {
     render() {
         let candidates = [];
         for (let i = 0; i < this.maxCandidates; i++) {
-            candidates.push(<AutoComplete key={'autocomplete-candidate-' + i} ref={'autocomplete-candidate-' + i} onClick={(e) => { this.onDropdownClick(e, i) }} value={this.state['candidate' + i]} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
+            candidates.push(<AutoComplete className="excludeSelect" key={'autocomplete-candidate-' + i} ref={'autocomplete-candidate-' + i} onClick={(e) => { this.onDropdownClick(e, i) }} value={this.state['candidate' + i]} suggestions={this.state.filteredCandidates} completeMethod={this.filterCandidates} size={30} minLength={1}
                 placeholder={(i + 1) + ' _________________________'} itemTemplate={this.itemTemplate.bind(this)} selectedItemTemplate={(e) => (i + 1) + ' ' + e} onChange={(e) => this.onAutocompleteChange(e, i)}>
             </AutoComplete>);
         }
